@@ -1,39 +1,48 @@
+/* eslint-disable react/prop-types */
 import { useId } from "react";
 import { ClearCartIcon, CartIcon } from "./icons";
-import "./Cart.css"
+import "./Cart.css";
+import { useCart } from "../hooks/useCart.js";
 
-export function Cart () {
-    const cartCheckboxId = useId()
+function CartItem({ thumbnail, price, title, quantity, addToCart }) {
+  return (
+    <li>
+      <img src={thumbnail} alt={title} />
+      <div>
+        <strong>{title}</strong> - ${price}
+      </div>
 
-    return(
-        <>
-            <label className="cart-button" htmlFor={cartCheckboxId}>
-                <CartIcon/>
-            </label>
-            <input id={cartCheckboxId} type="checkbox" hidden/>
+      <footer>
+        <small >Qty: {quantity}</small>
+        <button onClick={addToCart}>+</button>
+      </footer>
+    </li>
+  );
+}
 
-            <aside className="cart">
+export function Cart() {
+  const cartCheckboxId = useId();
+  const { cart, clearCart, addToCart } = useCart();
+
+  return (
+    <>
+      <label className="cart-button" htmlFor={cartCheckboxId}>
+        <CartIcon />
+      </label>
+      <input id={cartCheckboxId} type="checkbox" hidden />
+
+      <aside className="cart">
         <ul>
-            <li>
-                <img src="https://i.dummyjson.com/data/products/2/thumbnail.jpg" alt="" />
-                <div>
-                    <strong>Iphone</strong> - $1399
-                </div>
-
-                <footer>
-                    <small>
-                        Qty: 1
-                    </small>
-                    <button>
-                        +
-                    </button>
-                </footer>
-            </li>
+          {cart.map((product) => (
+            <CartItem key={product.id} 
+            addToCart={() => addToCart(product)}
+            {...product} />
+          ))}
         </ul>
-        <button>
-            <ClearCartIcon />
+        <button onClick={clearCart}>
+          <ClearCartIcon />
         </button>
-            </aside>
-        </>
-    )
+      </aside>
+    </>
+  );
 }
