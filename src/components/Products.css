@@ -169,7 +169,7 @@ transform: translateY(0);
   -webkit-line-clamp: 3;
   overflow: hidden;
   background-color: var(--surface-color);
-  transition: transform 0.3s ease-in-out;
+  transition: transform 0.4s ease-in-out;
   transform: translateY(0);
 }
 
