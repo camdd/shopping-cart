@@ -1,3 +1,6 @@
+@import '@radix-ui/colors/gray.css';
+
+
 .cart {
     background: #000;
     display: none;
@@ -31,23 +34,22 @@
   
   .cart-button {
     align-items: center;
-    background: #09f;
+    background-color: var(--gray-9);
     border-radius: 9999px;
     cursor: pointer;
     display: flex;
-    height: 32px;
+    height: 2em;
     justify-content: center;
-    padding: 4px;
+    padding: 0.5em;
     position: absolute;
-    right: 8px;
-    top: 8px;
+    right: 2em;
+    top: 2em;
     transition: all .3s ease;
-    width: 32px;
+    width: 2em;
     z-index: 9999;
   }
   
   .cart-button:hover {
-
   transform: scale(1.1);
 
   }

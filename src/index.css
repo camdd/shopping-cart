@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@100;200;400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap');
+@import '@radix-ui/colors/gray.css';
 
 :root {
   font-family: 'Hanken Grotesk', 'Poppins', sans-serif;
@@ -9,17 +10,10 @@
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
   background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
 }
 
 #root {
   margin: 0 auto;
-  padding: 2rem;
   text-align: center;
   width: 100%;
 }
@@ -39,13 +33,18 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
+  background:var(--gray-12);
   cursor: pointer;
   transition: border-color 0.25s;
+  display: flex;
+  margin-top: 5em;
+  margin-left: 4em;
 }
+
 button:hover {
   border-color: #646cff;
 }
+
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
